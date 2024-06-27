@@ -6,4 +6,4 @@ extract archive to script folder
 install requirements
 run script.py
 
-![results](results.detailed.png)
+![results](results_detailed.png)
