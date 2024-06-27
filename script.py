@@ -101,3 +101,17 @@ score, acc = model.evaluate(X_test, y_test, batch_size=batch_size)
 print("Test score:", score)
 print("Test accuracy:", acc)
 
+prediction=model.predict(X_test)
+y_pred=np.where(prediction>=.5,1,0)
+df=pd.DataFrame()
+df['actual'],df['pred']=y_test,y_pred
+
+# Evaluate with a confusion matrix and classification report
+
+import seaborn as sns
+CM = confusion_matrix(y_test, y_pred)
+sns.heatmap(CM,annot=True,center = True,fmt='g',cmap='Blues')
+
+report = classification_report(y_test, y_pred)
+print("Classification Report:")
+print(report)
